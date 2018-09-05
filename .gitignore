@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+# Mac custom attributes file (Desktop Service Store)
+.DS_Store
+
+# PyCharm files
+.idea/
+.vscode/
+
+# Instance Folder - used for configuration parameters
+
