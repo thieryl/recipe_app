@@ -11,4 +11,4 @@ __pycache__/
 .vscode/
 
 # Instance Folder - used for configuration parameters
-
+*.pyc
