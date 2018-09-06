@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Louison Family Recipe App">
+  <meta name="author" content="Thiery louison">
+  <title>Kennedy Family Recipe App</title>
+  <!-- styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <!-- styles -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <h1>Welcome to the Louison Family Recipe App!</h1>
+  This site describes our favorite family recipes!
+  <h2>Breakfast Recipes</h2>
+  <h2>Lunch Recipes</h2>
+  <h2>Dinner Recipes</h2>
+  <h2>Dessert Recipes</h2>
+  <h3>Recipes</h3>
+  <div class='row'>
+    <div class="col-md-4">
+      <table class="table table-striped" id="owned_stock_table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for recipe in recipes %}
+          <tr>
+            <td>{{ recipe.recipe_title }} </td>
+            <td>{{ recipe.recipe_description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- scripts -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

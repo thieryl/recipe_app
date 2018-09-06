@@ -1,11 +1,12 @@
 # project/recipes/views.py
 from flask import render_template, Blueprint
-
+from project.models import Recipe
 # template config
 recipes_blueprint = Blueprint('recipes', __name__,
                               template_folder='templates')
 
 
 @recipes_blueprint.route('/')
-def indec():
-    return render_template('index.html')
+def index():
+    all_recipes = Recipe.query.all()
+    return render_template('recipes.html', recipes=all_recipes)
