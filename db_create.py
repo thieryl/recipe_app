@@ -4,6 +4,7 @@ from project import db
 from project.models import Recipe
 
 # Create the database and the database tables
+db.drop_all()
 db.create_all()
 
 # insert recipe data
