@@ -14,7 +14,7 @@ recipe2 = Recipe('Hamburgers', 'Classic dish elivated with pretzel buns.')
 recipe3 = Recipe('Mediterranean Chicken',
                  'Grilled chicken served with pitas, hummus, and sauted vegetables.')
 recipe4 = Recipe('Mauritian Chicken',
-                 'Grilled chicken served with pitas, hummus, and sauted vegetables.')
+                 'Grilled chicken served with faratas, hummus, and sauted vegetables.')
 db.session.add(recipe1)
 db.session.add(recipe2)
 db.session.add(recipe3)
@@ -22,7 +22,8 @@ db.session.add(recipe4)
 # commit the changes
 db.session.commit()
 
-
-user2 = User('thiery.louison@gmails.com', '123456')
+user1 = User('thiery.louison@gmail.com', '1')
+user2 = User('thiery.louiso1n@gmails.com', '123456')
+db.session.add(user1)
 db.session.add(user2)
 db.session.commit()
