@@ -10,12 +10,13 @@ from .forms import RegisterForm
 users_blueprint = Blueprint('users', __name__)
 
 
-@users_blueprint.route('/login')
-def login():
-    return render_template('login.html')
+@users_blueprint.route('/getusers')
+def get_users():
+    all_users = User.query.all()
+    return render_template('user.html', users=all_users)
 
 
-@users_blueprint.route('/add', methods=['GET', 'POST'])
+@users_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST':
@@ -26,9 +27,14 @@ def register():
                 db.session.add(new_user)
                 db.session.commit()
                 flash('Thanks for registering!', 'success')
-                return redirect(url_for('recipes.index'))
-            except:
+                return redirect(url_for('users.get_users'))
+            except IntegrityError:
                 db.session.rollback()
-                flash('Error! Email ({}) already exist'.format(
+                flash('ERROR! Email ({}) already exists.'.format(
                     form.email.data), 'error')
     return render_template('register.html', form=form)
+
+
+@users_blueprint.route('/login')
+def login():
+    return render_template('login.html')
