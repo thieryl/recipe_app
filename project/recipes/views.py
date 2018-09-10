@@ -6,8 +6,7 @@ from .forms import AddRecipeForm
 
 
 # template config
-recipes_blueprint = Blueprint('recipes', __name__,
-                              template_folder='templates')
+recipes_blueprint = Blueprint('recipes', __name__)
 
 
 def flash_errors(form):
