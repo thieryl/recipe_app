@@ -5,7 +5,7 @@
     <div class="page-header">
         <h2>Please Register Your New Account</h2>
     </div>
-    <form action="{{ url_for('users.register') }}" method='post'>
+    <form action="{{ url_for('users.toto') }}" method='post'>
         {{ form.crsf_token }}
         <dl>
             {{ render_field(form.email, placeholder="Email Address") }}
