@@ -34,33 +34,13 @@ def get_users():
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST':
-        if form.validate_on_submit():
-            try:
-                new_user = User(form.email.data, form.password.data)
-                print(new_user)
-                new_user.authenticated = True
-                db.session.add(new_user)
-                db.session.commit()
-                flash('Thanks for registering!', 'success')
-                return redirect(url_for('users.get_users'))
-            except IntegrityError:
-                db.session.rollback()
-                flash('ERROR! Email ({}) already exists.'.format(
-                    form.email.data), 'error')
-    return render_template('register.html', form=form)
-
-
-@users_blueprint.route('/toto', methods=['GET', 'POST'])
-def toto():
-    form = RegisterForm(request.form)
-    if request.method == 'POST':
         if form.validate_on_submit:
             try:
                 new_user = User(form.email.data, form.password.data)
                 db.session.add(new_user)
                 db.session.commit()
                 flash('Thanks for registering!', 'success')
-                return redirect(url_for('users.get_users'))
+                return redirect(url_for('recipes.index'))
             except IntegrityError:
                 db.session.rollback()
                 flash('ERROR! Email ({}) already exists.'.format(
