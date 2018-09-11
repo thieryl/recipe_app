@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="page-header">
+  <h2>Users:</h2>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-striped" id="owned_stock_table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password_plaintext }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
