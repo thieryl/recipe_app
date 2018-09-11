@@ -16,3 +16,18 @@ class RegisterForm(FlaskForm):
     confirm = PasswordField('Repeat Password',
                             validators=[DataRequired(),
                                         EqualTo('password')])
+
+
+class LoginForm(FlaskForm):
+    email = StringField('Email',
+                        validators=[DataRequired(),
+                                    Email(),
+                                    Length(min=6, max=40)])
+    password = PasswordField('Password',
+                             validators=[DataRequired()])
+
+
+class LoginForms(FlaskForm):
+    email = StringField('Email', validators=[
+                        DataRequired(), Email(), Length(min=6, max=40)])
+    password = PasswordField('Password', validators=[DataRequired()])
