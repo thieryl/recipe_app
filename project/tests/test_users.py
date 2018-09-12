@@ -51,7 +51,7 @@ class UsersTests(unittest.TestCase):
     def test_login_page(self):
         response = self.app.get('/login', follow_redirects=True)
         self.assertIn(
-            b'Future site for logging into Louison Family Recipes!', response.data)
+            b'Log In', response.data)
 
     def test_user_registration_form_displays(self):
         response = self.app.get('/register')

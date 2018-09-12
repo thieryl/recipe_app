@@ -5,7 +5,7 @@ from flask import Flask
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-
+from flask_debugtoolbar import DebugToolbarExtension
 
 ################
 #### config ####
@@ -23,6 +23,8 @@ login_manager.login_view = "users.login"
 
 
 from project.models import User
+
+toolbar = DebugToolbarExtension(app)
 
 
 @login_manager.user_loader

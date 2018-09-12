@@ -9,6 +9,7 @@ from flask import render_template, Blueprint, request, redirect, url_for, flash
 from sqlalchemy.exc import IntegrityError
 from flask_login import login_user, current_user, login_required, logout_user
 
+
 from .forms import RegisterForm, LoginForm, LoginForms
 from project import db
 from project.models import User
