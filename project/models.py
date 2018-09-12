@@ -25,13 +25,14 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String, unique=True, nullable=False)
+    # TEMPORARY - TO BE DELETED IN FAVOR OF HASHED PASSWORD
     password_plaintext = db.Column(db.String, nullable=False)
     authenticated = db.Column(db.Boolean, default=False)
 
     def __init__(self, email, password_plaintext):
         self.email = email
         self.password_plaintext = password_plaintext
-        self.authentication = False
+        self.authenticated = False
 
     @hybrid_method
     def is_correct_password(self, plaintext_password):
@@ -39,31 +40,22 @@ class User(db.Model):
 
     @property
     def is_authenticated(self):
-        '''
-            Returns True if the user is authenticated
-        '''
+        """Return True if the user is authenticated."""
         return self.authenticated
 
     @property
     def is_active(self):
-        '''
-            Always True as all users are active
-        '''
+        """Always True, as all users are active."""
         return True
 
     @property
     def is_anonymous(self):
-        '''
-            Returns False as we don't support anonymous users
-        '''
+        """Always False, as anonymous users aren't supported."""
         return False
 
-    @property
     def get_id(self):
-        '''
-            Returns the email address to satisfy flask-login requirements
-            This requires python 3
-        '''
+        """Return the email address to satisfy Flask-Login's requirements."""
+        """Requires use of Python 3"""
         return str(self.id)
 
     def __repr__(self):

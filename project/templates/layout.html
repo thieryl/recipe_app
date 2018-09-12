@@ -39,10 +39,11 @@
                     <li><a href="#">Lunch Recipes</a></li>
                     <li><a href="#">Dinner Recipes</a></li>
                     <li><a href="#">Dessert Recipes</a></li>
+                    <li><a href="{{ url_for('recipes.index') }}">Public Recipes</a></li>
                     <li><a href="{{ url_for('recipes.add_recipe') }}">Add a New Recipes</a></li>
+                    <li><a href="{{ url_for('users.logout') }}">Log Out</a></li>
                     <li><a href="{{ url_for('users.register') }}">Register</a></li>
                     <li><a href="{{ url_for('users.login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('users.logout') }}">Log Out</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Welcome!</a></li>
