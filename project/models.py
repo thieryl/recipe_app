@@ -1,7 +1,7 @@
 # project/models.py
 
 from project import db
-from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
+from sqlalchemy.ext.hybrid import hybrid_method
 
 
 class Recipe(db.Model):

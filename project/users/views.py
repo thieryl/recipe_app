@@ -96,3 +96,15 @@ def logout():
     logout_user()
     flash('Goodbye!', 'info')
     return redirect(url_for('users.login'))
+
+
+@users_blueprint.route('/logouts')
+@login_required
+def logouts():
+    user = current_user
+    user.authenticated = False
+    db.session.add(user)
+    db.session.commit()
+    logout_user()
+    flash('Goodbye!', 'info')
+    return redirect(url_for('users.login'))
